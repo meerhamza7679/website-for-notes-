@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Notes Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-group">
+        <div class="brand-mark">CS</div>
+        <div>
+          <p class="eyebrow">University archive</p>
+          <h1>Notes Repository</h1>
+        </div>
+      </div>
+      <button id="newNoteBtn" class="primary-button">Add image note</button>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow accent">Computer science</p>
+          <h2>Organised note storage for every subject.</h2>
+        </div>
+        <p class="hero-copy">
+          Upload handwritten or digital notes as images, keep them grouped by subject,
+          and review them quickly before exams.
+        </p>
+      </section>
+
+      <section aria-label="Subjects" class="subjects-panel">
+        <div class="section-heading">
+          <h3>Subjects</h3>
+          <button id="allSubjectsBtn" class="chip-button secondary active">All</button>
+        </div>
+        <div id="subjectGrid" class="subject-grid"></div>
+      </section>
+
+      <section class="notes-panel">
+        <div class="section-heading toolbar">
+          <h3 id="activeSubjectTitle">All notes</h3>
+          <button id="uploadBtn" class="secondary-button">Upload image</button>
+        </div>
+        <div id="noteGrid" class="note-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="noteModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h3>Add note</h3>
+          <button id="closeModalBtn" class="icon-button" aria-label="Close">×</button>
+        </div>
+
+        <form id="noteForm">
+          <div class="field-row">
+            <label for="noteTitle">Title</label>
+            <input id="noteTitle" name="noteTitle" type="text" placeholder="Midterm revision" required />
+          </div>
+
+          <div class="field-row">
+            <label for="noteSubject">Subject</label>
+            <select id="noteSubject" name="noteSubject" required></select>
+          </div>
+
+          <div class="field-row">
+            <label for="noteDescription">Notes</label>
+            <textarea id="noteDescription" name="noteDescription" rows="3" placeholder="Add a short description or chapter reference..."></textarea>
+          </div>
+
+          <div class="field-row">
+            <label for="noteImage">Image file</label>
+            <input id="noteImage" name="noteImage" type="file" accept="image/*" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="cancelBtn" class="secondary-button">Cancel</button>
+            <button type="submit" class="primary-button">Save note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
